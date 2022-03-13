@@ -179,4 +179,24 @@ recordRoutes.route("/persons").get(async function (req, res) {
         });
 });
 
+/**
+ * RELATION PERSON PLACE
+ */
+// This section will help you get a list of all the records.
+recordRoutes.route("/locations").get(async function (req, res) {
+    // Get records
+    const dbConnect = dbo.getDb();
+
+    dbConnect
+        .collection("rel_person_place")
+        .find({}).limit(50)
+        .toArray(function (err, result) {
+            if (err) {
+                res.status(400).send("Error fetching listings!");
+            } else {
+                res.json(result);
+            }
+        });
+});
+
 module.exports = recordRoutes;
