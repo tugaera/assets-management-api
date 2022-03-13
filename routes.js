@@ -88,6 +88,14 @@ recordRoutes.route("/listings/delete").delete((req, res) => {
 });
 
 /**
+ * 
+ */
+// This section will help you get a list of all the records.
+recordRoutes.route("/").get(async function (req, res) {
+    res.json();
+});
+
+/**
  * USER LOGIN
  */
 
