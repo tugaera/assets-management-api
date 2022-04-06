@@ -27,6 +27,27 @@ module.exports = {
   },
   
   getDb2: function (database) {
+    // Implement Database connection
+    try {
+        await client.connect(function (err, db) {
+          if (err || !db) {
+            return callback(err);
+          }
+
+          dbConnection = db.db(database);
+          console.log("Successfully connected to MongoDB.");
+
+          return dbConnection;
+        });
+
+        // await listDatabases(client);
+
+    } catch (e) {
+        console.error(e);
+    } finally {
+        // await client.close();
+    }
+
     return dbConnection;
   },
 };
