@@ -27,7 +27,6 @@ module.exports = {
   },
   
   getDb2: async function (database) {
-    console.log('getDb2 - database', database);
     // Implement Database connection
     try {
         await client.connect(function (err, db) {
@@ -36,7 +35,7 @@ module.exports = {
           }
 
           dbConnection = db.db(database);
-          console.log("Successfully connected to MongoDB.");
+          console.log("Successfully connected to MongoDB. ", database);
 
           return dbConnection;
         });
