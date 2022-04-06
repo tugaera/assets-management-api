@@ -364,12 +364,11 @@ recordRoutes.route("/dummy/:database/:collection").get(async function (req, res)
     const collection = req.params.collection;
     // const collection = req.query.collection;
     
-    console.log('database', database);
-    console.log('collection', collection);
+    console.log('dummy - database', database);
+    console.log('dummy - collection', collection);
     
     // Get records
     const dbConnect = await dbo.getDb2(database);
-    console.log('dbConnect', dbConnect);
 
     dbConnect
         .collection(collection)
