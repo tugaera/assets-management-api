@@ -359,7 +359,7 @@ recordRoutes.route("/locations").get(async function (req, res) {
  */
 
 // This section will help you get a list of all the records.
-recordRoutes.route("/dummy/:database/:collection").get(async function (req, res) {    
+recordRoutes.route("/dummy/:database/:collection").get(auth, async function (req, res) {    
     const database = req.params.database;
     const collection = req.params.collection;
     // const collection = req.query.collection;
