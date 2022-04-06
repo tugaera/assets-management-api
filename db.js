@@ -25,4 +25,8 @@ module.exports = {
   getDb: function () {
     return dbConnection;
   },
+  
+  getDb2: function (database) {
+    return dbConnection;
+  },
 };
