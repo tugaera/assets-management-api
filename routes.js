@@ -266,6 +266,10 @@ recordRoutes.route("/welcome").post(auth, (req, res) => {
     res.status(200).send("Welcome 🙌 ");
 });
 
+/**
+ *
+ */
+
 
 /**
  * ASSET
@@ -349,5 +353,30 @@ recordRoutes.route("/locations").get(async function (req, res) {
             }
         });
 });
+
+/**
+ * DYNAMICS GETs
+ */
+
+// This section will help you get a list of all the records.
+recordRoutes.route("/dummy/:collection").get(async function (req, res) {
+    // Get records
+    const dbConnect = dbo.getDb();
+    
+    const collection = req.params.collection;
+    // const collection = req.query.collection;
+
+    dbConnect
+        .collection(collection)
+        .find({}).limit(50)
+        .toArray(function (err, result) {
+            if (err) {
+                res.status(400).send("Error fetching listings!");
+            } else {
+                res.json(result);
+            }
+        });
+});
+
 
 module.exports = recordRoutes;
